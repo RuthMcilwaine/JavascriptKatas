@@ -1,17 +1,29 @@
-let reportObject = {
-  A: [199, 200, 208],
-  B: [200, 208, 210],
-  C: [208, 210, 200],
-  D: [210, 200, 207],
-  E: [200, 207, 240],
-  F: [207, 240, 269],
-  G: [240, 269, 260],
-};
+let report = [199, 200, 208, 210, 200, 207, 240, 269, 260, 263];
 
-for (const [key] of Object.entries(reportObject)) {
-  let sum = 0;
-  for (const value of Object.values(reportObject[key])) {
-    sum += value;
+(() => {
+  let counter = 0;
+  let prevSum = 0;
+
+  result = report
+    .map((line, i, arr) => line + arr[i + 1] + arr[i + 2])
+    .slice(0, report.length - 2);
+
+  for (let i = 2; i < report.length; i += 1) {
+    const curSum = report[i - 2] + report[i - 1] + report[i];
+    if (i === 2) {
+      console.log(`${curSum} (N/A - no previous sum)`);
+    } else if (curSum == prevSum) {
+      console.log(`${curSum} (no change)`);
+    } else if (curSum > prevSum) {
+      counter++;
+
+      console.log(`${curSum} (increased)`);
+      prevSum = curSum;
+    } else if (curSum < prevSum) {
+      console.log(`${curSum} (decreased)`);
+    }
   }
-  console.log(`${key}: ` + sum);
-}
+  console.log(
+    `There are ${counter} measurements that are larger than the previous measurement.`
+  );
+})();
