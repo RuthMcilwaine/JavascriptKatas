@@ -22,15 +22,16 @@
 //   { item: 'PS2 Console', stock: 1, original: 299.99, discount: 0.8 },
 //   { item: 'Nintendo 64', stock: 2, original: 199.99, discount: 0.65 },
 // ];
-// function calculateSalesTotals(sales) {
-//   let updatedSales = sales.map((sale) => {
-//     //let { original, discount = 0.0 } = sale;
-//     sale['sale'] = sale.original - sale.original * sale.discount;
-//     sale['total'] = sale.sale * sale.stock;
-//     return sale;
-//   });
-//   return updatedSales;
-// }
+function calculateSalesTotals(sales) {
+  let updatedSales = sales.map((sale) => {
+    //let { original, discount = 0.0 } = sale;
+    sale['sale'] = sale.original - sale.original * sale.discount;
+    sale.sale = sale.original - sale.original * sale.discount;
+    sale['total'] = sale.sale * sale.stock;
+    return sale;
+  });
+  return updatedSales;
+}
 // let updatedSales = calculateSalesTotals(sales);
 // console.log(updatedSales);
 
@@ -84,9 +85,9 @@ let employee = {
 
 let {
   name: { firstName, lastName },
-  name,
+  name: personName,
 } = employee;
 
 console.log(firstName); // John
 console.log(lastName); // Doe
-console.log(name); // { firstName: 'John', lastName: 'Doe' }
+console.log(personName); // { firstName: 'John', lastName: 'Doe' }
