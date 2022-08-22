@@ -97,12 +97,26 @@ todoList.push(result);
 //console.log(todoList);
 
 // 4. Write a function that could ensure every todo in your list of ~10 todos describes itself using 'Pascal Case'
-
-// const toPascalCase = (str) =>
-//   str
-//     .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
-//     .map((w) => `${w.charAt(0).toUpperCase()}${w.slice(1)}`)
-//     .join('');
+const toPascalCase = todoList.map(
+  ({
+    createDate,
+    todoId,
+    todoLabel,
+    todoItem,
+    todoDescription,
+    todoCompleted,
+    anAssignee,
+  }) => ({
+    CreateDate: createDate,
+    TodoId: todoId,
+    TodoLabel: todoLabel,
+    TodoItem: todoItem,
+    TodoDescription: todoDescription,
+    TodoCompleted: todoCompleted,
+    AnAssignee: anAssignee,
+  })
+);
+//console.log(toPascalCase);
 
 // 5. Sort todos by Alphabetical description order
 
