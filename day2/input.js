@@ -1,4 +1,4 @@
-let input = `forward 2
+var input = `forward 2
 forward 5
 forward 5
 down 4
@@ -998,3 +998,5 @@ forward 7
 forward 9
 up 3
 forward 6`;
+
+export default input;
