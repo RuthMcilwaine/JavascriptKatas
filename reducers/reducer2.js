@@ -20,7 +20,7 @@ const initialState = {
   },
 };
 
-function upddateMemo(initialState, invoiceNo, memo) {
+function updateMemo(initialState, invoiceNo, memo) {
   return {
     ...initialState,
     [invoiceNo]: {
@@ -30,5 +30,5 @@ function upddateMemo(initialState, invoiceNo, memo) {
   };
 }
 
-// console.log(upddateMemo(initialState, 's9asgv1945', 'overdue by 3 days'));
-//console.log(upddateMemo(initialState, 'b8dsgkopa', 'paid on time :'));
+console.log(updateMemo(initialState, 's9asgv1945', 'overdue by 3 days'));
+//console.log(updateMemo(initialState, 'b8dsgkopa', 'paid on time :'));
